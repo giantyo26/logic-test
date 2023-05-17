@@ -14,7 +14,7 @@ func main() {
 		fmt.Println("Invalid input")
 	}
 	// Check if its 3 digit positive int, if true, rearrange the digit from the biggest num
-	if checkDigits(num) {
+	if num >= 100 || num <= 999 {
 		nums := make([]int, 0, 3)
 		for num > 0 {
 			nums = append(nums, num%10) // Get each digit with mod & push the remainder into the slice e.g = 792 % 10 = 2
@@ -28,7 +28,7 @@ func main() {
 	}
 }
 
-// Sorting by comparing 2 int and swapping them
+// Sorting by comparing each digit and swapping them
 func sortNums(nums []int) int {
 	var N = len(nums)
 	var x = 0
@@ -45,19 +45,4 @@ func sortNums(nums []int) int {
 	}
 	// Turn back each 3 digit into one integer
 	return nums[0]*100 + nums[1]*10 + nums[2]
-}
-
-func checkDigits(num int) bool {
-	var digit int
-
-	for num > 0 {
-		digit++
-		num /= 10
-	}
-
-	if digit == 3 {
-		return true
-	} else {
-		return false
-	}
 }
